@@ -1,0 +1,43 @@
+body {
+  align-items: center;
+}
+
+.container {
+  width: 25%;
+  height: max-content;
+  margin: auto;
+  background-color: #ececec;
+  padding: 20px 20px;
+  margin-top: 150px;
+  border-radius: 7px;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-form {
+  padding: 5px;
+}
+
+.form-field {
+  display: inline-block;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.form-error {
+  display: block;
+  color: rgb(237, 67, 55);
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+}
