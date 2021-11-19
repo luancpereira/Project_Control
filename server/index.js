@@ -60,6 +60,7 @@ app.post("/login", (req, res) => {
           res.send({
             msg: "Usuario Logado com Sucesso!",
             token: 1,
+            user: user,
           });
         } else {
           res.send({
