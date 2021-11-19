@@ -1,0 +1,10 @@
+.vertical_center { /*alinhamento vertical*/
+  display: flex;
+  align-items: center;
+}
+
+.horizontal_center {
+    margin: 0 auto;
+    width: 80%;
+
+}

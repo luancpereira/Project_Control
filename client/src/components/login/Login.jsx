@@ -1,9 +1,9 @@
-import "../../App.css";
+import styles from "./Login.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Axios from "axios";
 
-function Login({ setLogado }) {
+function Login({ setLogado, setUser, setValidate }) {
   const handleClickLogin = (values) => {
     Axios.post("http://localhost:3001/login", {
       user: values.user,
@@ -11,6 +11,12 @@ function Login({ setLogado }) {
     }).then((response) => {
       if (response.data.token === 1) {
         setLogado(true);
+        setUser(response.data.user);
+        if (response.data.user === "admin") {
+          setValidate(true);
+        } else {
+          setValidate(false);
+        }
       } else {
         setLogado(false);
       }
@@ -28,50 +34,63 @@ function Login({ setLogado }) {
 
   return (
     <>
-      <div className="container">
-        <h1>Login</h1>
-        <Formik
-          initialValues={{}}
-          onSubmit={handleClickLogin}
-          validationSchema={validationLogin}
-        >
-          <Form className="login-form">
-            <div className="login-form-group">
-              <Field
-                name="user"
-                className="col-12 form-control m-2"
-                placeholder="Usuario"
-              />
-              <ErrorMessage
-                component="span"
-                name="user"
-                className="form-error"
-              />
-            </div>
+      <section className={`${styles.gradient_custom} vh-100`}>
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div className="card bg-dark text-white">
+                <div className="card-body p-5 text-center">
+                  <div className="mb-md-5 mt-md-4 pb-5">
+                    <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
 
-            <div className="login-form-group">
-              <Field
-                name="password"
-                className="form-control m-2 col-12"
-                placeholder="Password"
-                type="password"
-              />
-              <ErrorMessage
-                component="span"
-                name="password"
-                className="form-error"
-              />
-            </div>
+                    <Formik
+                      initialValues={{}}
+                      onSubmit={handleClickLogin}
+                      validationSchema={validationLogin}
+                    >
+                      <Form className="login-form">
+                        <div className="login-form-group">
+                          <Field
+                            name="user"
+                            className="col-12 form-control m-2"
+                            placeholder="Usuario"
+                          />
+                          <ErrorMessage
+                            component="span"
+                            name="user"
+                            className="form-error"
+                          />
+                        </div>
 
-            <button
-              className="btn btn-lg btn-success btn-block col-12 m-2"
-              type="submit"
-            >
-              Login
-            </button>
-          </Form>
-        </Formik>
-      </div>
+                        <div className="login-form-group">
+                          <Field
+                            name="password"
+                            className="form-control m-2 col-12"
+                            placeholder="Password"
+                            type="password"
+                          />
+                          <ErrorMessage
+                            component="span"
+                            name="password"
+                            className="form-error"
+                          />
+                        </div>
+
+                        <button
+                          className="btn btn-lg btn-success btn-block col-12 m-2"
+                          type="submit"
+                        >
+                          Login
+                        </button>
+                      </Form>
+                    </Formik>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
