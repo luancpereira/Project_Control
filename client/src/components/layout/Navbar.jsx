@@ -27,7 +27,7 @@ function Navbar({ user, validate }) {
                 <li className={styles.item}>
                   <Link>
                     <FcBusinessman />
-                    {user}
+                    {user} <span className="caret"></span>
                   </Link>
                 </li>
               </ul>

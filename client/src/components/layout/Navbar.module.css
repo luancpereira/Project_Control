@@ -27,3 +27,22 @@
 svg{
     font-size: 2em;
 }
+
+.navbar_login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar_login_session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon_size
+{
+    font-size: 87px;
+}

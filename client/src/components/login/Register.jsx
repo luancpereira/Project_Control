@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Axios from "axios";
+import styles from "./Register.module.css";
 
 function Register() {
   const handleClickRegister = (values) => {
@@ -23,19 +24,18 @@ function Register() {
       .oneOf([yup.ref("password"), null], "Senhas Diferentes"),
   });
   return (
-    <div className="container col-4 align-items-center">
-      <div className="container text-center">
-        <h2>Cadastro de Novo Usuario</h2>
+      <div className='container col-2 text-center'>
+        <h3 className="fw-bold mb-2 text-uppercase">Cadastro de Novo Usuario</h3>
         <Formik
           initialValues={{}}
           onSubmit={handleClickRegister}
           validationSchema={validationRegister}
         >
-          <Form className="login-form">
-            <div className="login-form-group">
+          <Form className={styles.form}>
+            <div className={styles.form_control}>
               <Field
                 name="user"
-                className="form-control m-2 col-12"
+                className="form-control m-2"
                 placeholder="Usuario"
               />
               <ErrorMessage
@@ -45,10 +45,10 @@ function Register() {
               />
             </div>
 
-            <div className="login-form-group">
+            <div className={styles.form_control}>
               <Field
                 name="password"
-                className="form-control m-2 col-12"
+                className="form-control m-2"
                 placeholder="Password"
                 type="password"
               />
@@ -59,10 +59,10 @@ function Register() {
               />
             </div>
 
-            <div className="login-form-group">
+            <div className={styles.form_control}>
               <Field
                 name="confirmPassword"
-                className="form-control m-2 col-12"
+                className="form-control m-2"
                 placeholder="Confirm Password"
                 type="password"
               />
@@ -74,15 +74,14 @@ function Register() {
             </div>
 
             <button
-              className="btn btn-lg btn-success btn-block col-12 m-2"
+              className="btn btn-lg btn-success btn-block m-2"
               type="submit"
             >
               Cadastrar
             </button>
           </Form>
         </Formik>
-      </div>
-    </div>
+        </div>
   );
 }
 

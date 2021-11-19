@@ -18,7 +18,7 @@ function Rotas() {
       {logado ? (
         <>
           <Router>
-            <Navbar user={user} validate={validate} />
+            <Navbar user={user} validate={validate}/>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />

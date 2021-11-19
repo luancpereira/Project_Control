@@ -1,10 +1,24 @@
-.vertical_center { /*alinhamento vertical*/
+.form {
+  width: 100%;
+  margin: 2em 0;
+}
+.form_control {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1em;
 }
 
-.horizontal_center {
-    margin: 0 auto;
-    width: 80%;
+.form_control label {
+  margin-bottom: 0.6em;
+  font-weight: bold;
+}
 
+.form_control input {
+  padding: 0.7em;
+  border-radius: 0;
+  border-color: none;
+}
+
+.form_control::placeholder {
+  color: #7b7b7b;
 }

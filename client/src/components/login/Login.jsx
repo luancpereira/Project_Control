@@ -41,8 +41,7 @@ function Login({ setLogado, setUser, setValidate }) {
               <div className="card bg-dark text-white">
                 <div className="card-body p-5 text-center">
                   <div className="mb-md-5 mt-md-4 pb-5">
-                    <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-
+                    <h1 className="fw-bold m-1 mb-2 text-uppercase">Login</h1>
                     <Formik
                       initialValues={{}}
                       onSubmit={handleClickLogin}
