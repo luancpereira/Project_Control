@@ -4,7 +4,8 @@ import Container from "./Container";
 import styles from "./Navbar.module.css";
 import logo from "../../img/costs_logo.png";
 
-function Navbar({ user, validate }) {
+function Navbar({ validate }) {
+  const usuario = localStorage.getItem("usuario");
   return (
     <>
       {validate ? (
@@ -33,7 +34,7 @@ function Navbar({ user, validate }) {
                 <li className={styles.item}>
                   <div>
                     <FcBusinessman />
-                    <Link to="/home">{user}</Link>
+                    <Link to="/home">{usuario}</Link>
                   </div>
                 </li>
               </ul>
@@ -63,7 +64,7 @@ function Navbar({ user, validate }) {
                 <li className={styles.item}>
                   <div>
                     <FcBusinessman />
-                    <Link to="/home">{user}</Link>
+                    <Link to="/home">{usuario}</Link>
                   </div>
                 </li>
               </ul>

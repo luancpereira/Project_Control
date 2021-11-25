@@ -1,16 +1,25 @@
 import { Formik, Form, Field } from "formik";
 import styles from "../pages/ProjectsRegister.module.css";
 import { api } from "../../services/Conection";
-
+import { useHistory } from "react-router-dom";
 function ProjectsRegister() {
+  const history = useHistory(); //chamado do hook
+
+  const goToProjects = () => {
+    history.push("/projectcardsql"); //uso do hook para ir para a página /dogRegister
+  };
 
   const handleClickCadProject = (values) => {
-    api.post('/cadproject', {
-      name: values.name,
-      budget: values.budget,
-    }).then((response) => {
-      alert(response.data.msg);
-    });
+    api
+      .post("/cadproject", {
+        name: values.name,
+        budget: values.budget,
+        user: localStorage.getItem("usuario"),
+      })
+      .then((response) => {
+        alert(response.data.msg);
+        goToProjects();
+      });
   };
 
   return (

@@ -7,16 +7,27 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import Axios from "axios";
+import { api } from "../../services/Conection";
 
 export default function FormDialog(props) {
   const [editValues, setEditValues] = useState({
-      id: props.id,
-      name: props.name
+    id: props.id,
+    name: props.name,
+    budget: props.budget,
   });
 
-  const handleClickOpen = () => {
-    props.setOpen(true);
+  const handleEditProject = () => {
+    api.put("/editproject", {
+      id: editValues.id,
+      name: editValues.name,
+      budget: editValues.budget,
+    });
+    handleClose();
+  };
+
+  const handleDeleteProject = () => {
+    api.delete(`/deleteproject/${editValues.id}`)
+    handleClose()
   };
 
   const handleClose = () => {
@@ -52,9 +63,9 @@ export default function FormDialog(props) {
           <TextField
             disabled
             margin="dense"
-            id="userid"
-            label="UserId"
-            defaultValue={props.userid}
+            id="user"
+            label="Usuario"
+            defaultValue={props.user}
             onChange={handleChangeValues}
             type="text"
             fullWidth
@@ -81,9 +92,13 @@ export default function FormDialog(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={handleClose}>Cancel</Button>
-          <Button color="primary">Excluir</Button>
-          <Button color="primary">Salvar</Button>
+          <Button color="primary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button color="primary" onClick={handleDeleteProject}>Excluir</Button>
+          <Button color="primary" onClick={handleEditProject}>
+            Salvar
+          </Button>
         </DialogActions>
       </Dialog>
     </div>

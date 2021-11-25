@@ -1,27 +1,30 @@
 import styles from "./Login.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import Axios from "axios";
+import { api } from "../../services/Conection";
 
 function Login({ setLogado, setUser, setValidate }) {
   const handleClickLogin = (values) => {
-    Axios.post("http://localhost:3001/login", {
-      user: values.user,
-      password: values.password,
-    }).then((response) => {
-      if (response.data.token === 1) {
-        setLogado(true);
-        setUser(response.data.user);
-        if (response.data.user === "admin") {
-          setValidate(true);
+    api
+      .post("/login", {
+        user: values.user,
+        password: values.password,
+      })
+      .then((response) => {
+        if (response.data.token === 1) {
+          setLogado(true);
+          localStorage.setItem("usuario", response.data.user);
+          setUser(response.data.user);
+          if (response.data.user === "admin") {
+            setValidate(true);
+          } else {
+            setValidate(false);
+          }
         } else {
-          setValidate(false);
+          setLogado(false);
         }
-      } else {
-        setLogado(false);
-      }
-      alert(response.data.msg);
-    });
+        alert(response.data.msg);
+      });
   };
 
   const validationLogin = yup.object().shape({

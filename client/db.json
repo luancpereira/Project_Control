@@ -10,6 +10,17 @@
       "any": 0,
       "services": [],
       "id": 1
+    },
+    {
+      "name": "Testando Register",
+      "budget": "1222",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "any": 0,
+      "services": [],
+      "id": 2
     }
   ],
   "categories": [

@@ -14,7 +14,7 @@ function Rotas() {
   const [logado, setLogado] = useState(false);
   const [user, setUser] = useState([]);
   const [validate, setValidate] = useState(false);
-
+  localStorage.setItem('user', user);
   return (
     <div>
       {logado ? (

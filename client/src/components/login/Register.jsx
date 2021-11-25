@@ -1,16 +1,18 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import Axios from "axios";
 import styles from "./Register.module.css";
+import { api } from "../../services/Conection";
 
 function Register() {
   const handleClickRegister = (values) => {
-    Axios.post("http://localhost:3001/register", {
-      user: values.user,
-      password: values.password,
-    }).then((response) => {
-      alert(response.data.msg);
-    });
+    api
+      .post("/register", {
+        user: values.user,
+        password: values.password,
+      })
+      .then((response) => {
+        alert(response.data.msg);
+      });
   };
 
   const validationRegister = yup.object().shape({

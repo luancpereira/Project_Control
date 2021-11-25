@@ -17,21 +17,20 @@ function Card(props) {
         setOpen={setOpen}
         name={props.name}
         budget={props.budget}
-        userid={props.userid}
+        user={props.user}
         listCard={listCard}
         setListCard={setListCard}
-        id={props.idproject}
+        id={props.id}
       />
-      <section
-        className={styles.section_center}
-        onClick={() => handleClickCard()}
-      >
-        <div className={styles.container}>
-          <h1 className="card-title">{props.name}</h1>
-          <p className="card-text">{props.budget}</p>
-          <p className="card-text">{props.userid}</p>
-        </div>
-      </section>
+      <div className={styles.project_card} onClick={() => handleClickCard()}>
+        <h4>{props.name}</h4>
+        <p>
+          <span>Orçamento:</span> R$ {props.budget}
+        </p>
+        <p>
+          <span>Usuario:</span> {props.user}
+        </p>
+      </div>
     </>
   );
 }
