@@ -1,8 +1,8 @@
 {
   "projects": [
     {
-      "name": "Treinamento de React Js",
-      "budget": "20000",
+      "name": "Teste Cadastro de Projeto",
+      "budget": "2000",
       "category": {
         "id": "2",
         "name": "Dev"
@@ -10,28 +10,6 @@
       "any": 0,
       "services": [],
       "id": 1
-    },
-    {
-      "name": "Teste",
-      "budget": "12222",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "any": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "name": "Deixar o Manoel Rico",
-      "budget": "3000000",
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "any": 0,
-      "services": [],
-      "id": 3
     }
   ],
   "categories": [

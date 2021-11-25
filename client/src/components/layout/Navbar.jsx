@@ -22,13 +22,19 @@ function Navbar({ user, validate }) {
                   <Link to="/projects">Projetos</Link>
                 </li>
                 <li className={styles.item}>
-                  <Link to="/register">Cad User</Link>
+                  <Link to="/projectcardsql">Projetos MySql</Link>
                 </li>
                 <li className={styles.item}>
-                  <Link>
+                  <Link to="/projectsregister">CRUD Projetos</Link>
+                </li>
+                <li className={styles.item}>
+                  <Link to="/register">Novo Usuario</Link>
+                </li>
+                <li className={styles.item}>
+                  <div>
                     <FcBusinessman />
-                    {user} <span className="caret"></span>
-                  </Link>
+                    <Link to="/home">{user}</Link>
+                  </div>
                 </li>
               </ul>
             </Container>
@@ -49,10 +55,16 @@ function Navbar({ user, validate }) {
                   <Link to="/projects">Projetos</Link>
                 </li>
                 <li className={styles.item}>
-                  <Link>
+                  <Link to="/projectcardsql">Projetos MySql</Link>
+                </li>
+                <li className={styles.item}>
+                  <Link to="/projectsregister">CRUD Projetos</Link>
+                </li>
+                <li className={styles.item}>
+                  <div>
                     <FcBusinessman />
-                    {user}
-                  </Link>
+                    <Link to="/home">{user}</Link>
+                  </div>
                 </li>
               </ul>
             </Container>

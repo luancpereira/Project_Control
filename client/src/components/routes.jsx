@@ -6,6 +6,8 @@ import Register from "./login/Register";
 import NewProject from "./pages/NewProject";
 import Navbar from "./layout/Navbar";
 import Project from "./pages/Projects";
+import ProjectsRegister from "./pages/ProjectsRegister";
+import ProjectCardSql from "./projects/ProjectCardSql";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Rotas() {
@@ -18,7 +20,7 @@ function Rotas() {
       {logado ? (
         <>
           <Router>
-            <Navbar user={user} validate={validate}/>
+            <Navbar user={user} validate={validate} />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />
@@ -26,8 +28,10 @@ function Rotas() {
               {validate && (
                 <Route exact path="/register" component={Register} />
               )}
+              <Route exact path="/projectsregister" component={ProjectsRegister}/>
               <Route exact path="/newproject" component={NewProject} />
               <Route exact path="/projects" component={Project} />
+              <Route exact path="/projectcardsql" component={ProjectCardSql} />
             </Switch>
           </Router>
         </>
