@@ -6,7 +6,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-// Conexão com o Banco
+// Conexão com o Banco no Heroku
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
@@ -71,6 +71,33 @@ app.post("/login", (req, res) => {
       });
     } else {
       res.send({ msg: "Usuario Não Encontrado!" });
+    }
+  });
+});
+
+//Cadastro de Projetos
+app.post("/cadproject", (req, res) => {
+  const name = req.body.name;
+  const budget = req.body.budget;
+  db.query(
+    "INSERT INTO projects (name, budget) VALUES (?,?)",
+    [name, budget],
+    (err, result) => {
+      if (err) {
+        res.send(err);
+      }
+      res.send({ msg: "Projeto Criado!" });
+    }
+  );
+});
+
+//Pegando os Projetos no banco
+app.get("/getprojects", (req, res) => {
+  db.query("SELECT * FROM projects", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
     }
   });
 });
