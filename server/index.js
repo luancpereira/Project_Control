@@ -79,9 +79,10 @@ app.post("/login", (req, res) => {
 app.post("/cadproject", (req, res) => {
   const name = req.body.name;
   const budget = req.body.budget;
+  const usuario = req.body.user;
   db.query(
-    "INSERT INTO projects (name, budget) VALUES (?,?)",
-    [name, budget],
+    "INSERT INTO projects (name, budget, user) VALUES (?,?,?)",
+    [name, budget, usuario],
     (err, result) => {
       if (err) {
         res.send(err);
@@ -94,6 +95,37 @@ app.post("/cadproject", (req, res) => {
 //Pegando os Projetos no banco
 app.get("/getprojects", (req, res) => {
   db.query("SELECT * FROM projects", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//Editando Valores no Banco
+app.put("/editproject", (req, res) => {
+  const idproject = req.body.id;
+  const name = req.body.name;
+  const budget = req.body.budget;
+  db.query(
+    "UPDATE projects SET name = ?, budget = ? WHERE idproject = ?",
+    [name, budget, idproject],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+//Apagando Valores no Banco
+app.delete("/deleteproject/:id", (req, res) => {
+  const { id } = req.params;
+
+  db.query("DELETE FROM projects WHERE idproject = ?", [id], (err, result) => {
     if (err) {
       console.log(err);
     } else {
