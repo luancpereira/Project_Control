@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { api } from "../../services/Conection";
 
 function Login({ setLogado, setUser, setValidate }) {
-
   const handleClickLogin = (values) => {
     api
       .post("/login", {
@@ -15,7 +14,6 @@ function Login({ setLogado, setUser, setValidate }) {
         if (response.data.token === 1) {
           setLogado(true);
           localStorage.setItem("usuario", response.data.user);
-          localStorage.setItem("islogin", true);
           setUser(response.data.user);
           if (response.data.user === "admin") {
             setValidate(true);
@@ -24,7 +22,6 @@ function Login({ setLogado, setUser, setValidate }) {
           }
         } else {
           setLogado(false);
-          localStorage.setItem("isLogin", false);
         }
         alert(response.data.msg);
       });

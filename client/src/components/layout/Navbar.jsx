@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import { FcBusinessman } from "react-icons/fc";
+import { BsFillHouseDoorFill } from "react-icons/bs";
+import {
+  AiOutlinePlusCircle,
+  AiOutlineUserAdd,
+  AiOutlineUser,
+} from "react-icons/ai";
 import Container from "./Container";
 import styles from "./Navbar.module.css";
-import logo from "../../img/costs_logo.png";
+import logo from "../../img/logo.png";
 
 function Navbar({ validate }) {
   const usuario = localStorage.getItem("usuario");
-
-  const logout = () => {
-    localStorage.setItem("isLogin", true);
-  };
   return (
     <>
       {validate ? (
@@ -21,28 +22,22 @@ function Navbar({ validate }) {
               </Link>
               <ul className={styles.list}>
                 <li className={styles.item}>
+                  <BsFillHouseDoorFill color="white" />
                   <Link to="/home">Home</Link>
                 </li>
                 <li className={styles.item}>
-                  <Link to="/projects">Projetos</Link>
+                  <AiOutlinePlusCircle color="white" />
+                  <Link to="/projectcardsql">Projetos</Link>
                 </li>
                 <li className={styles.item}>
-                  <Link to="/projectcardsql">Projetos MySql</Link>
-                </li>
-                <li className={styles.item}>
-                  <Link to="/projectsregister">CRUD Projetos</Link>
-                </li>
-                <li className={styles.item}>
+                  <AiOutlineUserAdd color="white" />
                   <Link to="/register">Novo Usuario</Link>
                 </li>
                 <li className={styles.item}>
                   <div>
-                    <FcBusinessman />
+                    <AiOutlineUser color="white" />
                     <Link to="/home">{usuario}</Link>
                   </div>
-                </li>
-                <li className={styles.item}>
-                  <button onClick={logout}>Logout</button>
                 </li>
               </ul>
             </Container>
@@ -57,20 +52,16 @@ function Navbar({ validate }) {
               </Link>
               <ul className={styles.list}>
                 <li className={styles.item}>
+                  <BsFillHouseDoorFill color="white" />
                   <Link to="/home">Home</Link>
                 </li>
                 <li className={styles.item}>
-                  <Link to="/projects">Projetos</Link>
-                </li>
-                <li className={styles.item}>
-                  <Link to="/projectcardsql">Projetos MySql</Link>
-                </li>
-                <li className={styles.item}>
-                  <Link to="/projectsregister">CRUD Projetos</Link>
+                  <AiOutlinePlusCircle color="white" />
+                  <Link to="/projectcardsql">Projetos</Link>
                 </li>
                 <li className={styles.item}>
                   <div>
-                    <FcBusinessman />
+                    <AiOutlineUser color="white" />
                     <Link to="/home">{usuario}</Link>
                   </div>
                 </li>
