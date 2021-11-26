@@ -9,7 +9,7 @@ function Home() {
         Bem Vindo ao <span>Project Control</span>
       </h1>
       <p>Comece a gerenciar seus projetos agora!</p>
-      <LinkButton to="/newproject" text="Criar Projeto" />
+      <LinkButton to="/projectsregister" text="Criar Projeto" />
       <img src={savings} alt="Costs" />
     </section>
   );

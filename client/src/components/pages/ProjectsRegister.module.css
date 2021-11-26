@@ -1,25 +1,38 @@
 .form {
-    width: 100%;
-    margin: 2em 0;
-  }
-  .form_control {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-  }
-  
-  .form_control label {
-    margin-bottom: 0.6em;
-    font-weight: bold;
-  }
-  
-  .form_control input {
-    padding: 0.7em;
-    border-radius: 0;
-    border-color: none;
-  }
-  
-  .form_control::placeholder {
-    color: #7b7b7b;
-  }
-  
+  width: 100%;
+  margin: 2em 0;
+}
+.form_control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form_control_label {
+  margin-bottom: 0.6em;
+  font-weight: bold;
+}
+
+.form_control_input {
+  padding: 0.7em;
+  border-radius: 0;
+  border: none;
+}
+
+.form_control::placeholder {
+  color: #7b7b7b;
+}
+
+.newproject_container {
+  width: 450px;
+  margin: 0 auto;
+  padding: 3em;
+}
+
+.newproject_container h1 {
+  margin-bottom: 0.5em;
+}
+
+.newproject_container p {
+  color: #7b7b7b;
+}

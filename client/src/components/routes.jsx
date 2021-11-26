@@ -14,7 +14,8 @@ function Rotas() {
   const [logado, setLogado] = useState(false);
   const [user, setUser] = useState([]);
   const [validate, setValidate] = useState(false);
-  localStorage.setItem('user', user);
+  localStorage.setItem("user", user);
+  const isLogin = localStorage.getItem("isLogin");
   return (
     <div>
       {logado ? (
@@ -28,7 +29,11 @@ function Rotas() {
               {validate && (
                 <Route exact path="/register" component={Register} />
               )}
-              <Route exact path="/projectsregister" component={ProjectsRegister}/>
+              <Route
+                exact
+                path="/projectsregister"
+                component={ProjectsRegister}
+              />
               <Route exact path="/newproject" component={NewProject} />
               <Route exact path="/projects" component={Project} />
               <Route exact path="/projectcardsql" component={ProjectCardSql} />

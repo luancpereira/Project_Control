@@ -6,6 +6,10 @@ import logo from "../../img/costs_logo.png";
 
 function Navbar({ validate }) {
   const usuario = localStorage.getItem("usuario");
+
+  const logout = () => {
+    localStorage.setItem("isLogin", true);
+  };
   return (
     <>
       {validate ? (
@@ -36,6 +40,9 @@ function Navbar({ validate }) {
                     <FcBusinessman />
                     <Link to="/home">{usuario}</Link>
                   </div>
+                </li>
+                <li className={styles.item}>
+                  <button onClick={logout}>Logout</button>
                 </li>
               </ul>
             </Container>
