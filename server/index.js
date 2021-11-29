@@ -94,6 +94,7 @@ app.post("/cadproject", (req, res) => {
 
 //Pegando os Projetos no banco
 app.get("/getprojects", (req, res) => {
+  const user = req.body.user
   db.query("SELECT * FROM projects", (err, result) => {
     if (err) {
       console.log(err);
