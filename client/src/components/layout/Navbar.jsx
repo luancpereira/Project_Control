@@ -11,6 +11,12 @@ import logo from "../../img/logo.png";
 
 function Navbar({ validate }) {
   const usuario = localStorage.getItem("usuario");
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <>
       {validate ? (
@@ -34,10 +40,17 @@ function Navbar({ validate }) {
                   <Link to="/register">Novo Usuario</Link>
                 </li>
                 <li className={styles.item}>
-                  <div>
-                    <AiOutlineUser color="white" />
-                    <Link to="/home">{usuario}</Link>
-                  </div>
+                  <AiOutlineUser color="white" />
+                  <Link to="/home">{usuario}</Link>
+                </li>
+                <li>
+                  <button
+                    onClick={logout}
+                    type="button"
+                    class="btn btn-default btn-sm"
+                  >
+                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                  </button>
                 </li>
               </ul>
             </Container>
@@ -60,10 +73,17 @@ function Navbar({ validate }) {
                   <Link to="/projectcardsql">Projetos</Link>
                 </li>
                 <li className={styles.item}>
-                  <div>
-                    <AiOutlineUser color="white" />
-                    <Link to="/home">{usuario}</Link>
-                  </div>
+                  <AiOutlineUser color="white" />
+                  <Link to="/home">{usuario}</Link>
+                </li>
+                <li>
+                  <button
+                    onClick={logout}
+                    type="button"
+                    class="btn btn-default btn-sm"
+                  >
+                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                  </button>
                 </li>
               </ul>
             </Container>

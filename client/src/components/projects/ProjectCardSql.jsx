@@ -6,9 +6,9 @@ import Container from "../layout/Container";
 import styles from "../projects/ProjectCardSql.module.css";
 function ProjectCardSql() {
   const [projects, setProjects] = useState();
-
+  const user = localStorage.getItem("usuario");
   useEffect(() => {
-    api.get("/getprojects").then((response) => {
+    api.get("/getprojects", { user: user }).then((response) => {
       setProjects(response.data);
     });
   }, []);
@@ -23,17 +23,21 @@ function ProjectCardSql() {
         <Container customClass="start">
           {typeof projects !== "undefined" &&
             projects.map((value) => {
-              return (
-                <Card
-                  key={value.id}
-                  listCard={projects}
-                  setListCard={setProjects}
-                  id={value.idproject}
-                  name={value.name}
-                  budget={value.budget}
-                  user={value.user}
-                ></Card>
-              );
+              if (value.user === user) {
+                return (
+                  <>
+                    <Card
+                      key={value.id}
+                      listCard={projects}
+                      setListCard={setProjects}
+                      id={value.idproject}
+                      name={value.name}
+                      budget={value.budget}
+                      user={value.user}
+                    ></Card>
+                  </>
+                );
+              }
             })}
         </Container>
       </div>

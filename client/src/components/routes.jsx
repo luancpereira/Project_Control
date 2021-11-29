@@ -11,13 +11,16 @@ import ProjectCardSql from "./projects/ProjectCardSql";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Rotas() {
-  const [logado, setLogado] = useState(false);
   const [user, setUser] = useState([]);
   const [validate, setValidate] = useState(false);
   localStorage.setItem("user", user);
+  localStorage.setItem("validate", validate);
+
+  const isAuthenticated = () => localStorage.getItem("token") !== null;
+
   return (
     <div>
-      {logado ? (
+      {isAuthenticated() ? (
         <>
           <Router>
             <Navbar user={user} validate={validate} />
@@ -42,7 +45,6 @@ function Rotas() {
       ) : (
         <div>
           <Login
-            setLogado={setLogado}
             setUser={setUser}
             setValidate={setValidate}
           />
