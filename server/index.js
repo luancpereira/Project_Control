@@ -75,7 +75,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-//Cadastro de Projetos
+// Cadastro de Projetos
 app.post("/cadproject", (req, res) => {
   const name = req.body.name;
   const budget = req.body.budget;
@@ -92,9 +92,8 @@ app.post("/cadproject", (req, res) => {
   );
 });
 
-//Pegando os Projetos no banco
+// Pegando os Projetos no banco
 app.get("/getprojects", (req, res) => {
-  const user = req.body.user
   db.query("SELECT * FROM projects", (err, result) => {
     if (err) {
       console.log(err);
@@ -104,7 +103,18 @@ app.get("/getprojects", (req, res) => {
   });
 });
 
-//Editando Valores no Banco
+// Pegando users
+app.get("/getusers", (req, res) => {
+  db.query("SELECT * FROM users", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+// Editando Valores no Banco
 app.put("/editproject", (req, res) => {
   const idproject = req.body.id;
   const name = req.body.name;
@@ -122,7 +132,7 @@ app.put("/editproject", (req, res) => {
   );
 });
 
-//Apagando Valores no Banco
+// Apagando Valores no Banco
 app.delete("/deleteproject/:id", (req, res) => {
   const { id } = req.params;
 
