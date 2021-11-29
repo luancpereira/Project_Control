@@ -3,9 +3,7 @@ import { useState } from "react";
 import Login from "./login/Login";
 import Home from "./pages/Home";
 import Register from "./login/Register";
-import NewProject from "./pages/NewProject";
 import Navbar from "./layout/Navbar";
-import Project from "./pages/Projects";
 import ProjectsRegister from "./pages/ProjectsRegister";
 import ProjectCardSql from "./projects/ProjectCardSql";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -36,18 +34,13 @@ function Rotas() {
                 path="/projectsregister"
                 component={ProjectsRegister}
               />
-              <Route exact path="/newproject" component={NewProject} />
-              <Route exact path="/projects" component={Project} />
               <Route exact path="/projectcardsql" component={ProjectCardSql} />
             </Switch>
           </Router>
         </>
       ) : (
         <div>
-          <Login
-            setUser={setUser}
-            setValidate={setValidate}
-          />
+          <Login setUser={setUser} setValidate={setValidate} />
         </div>
       )}
     </div>

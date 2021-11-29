@@ -26,8 +26,8 @@ export default function FormDialog(props) {
   };
 
   const handleDeleteProject = () => {
-    api.delete(`/deleteproject/${editValues.id}`)
-    handleClose()
+    api.delete(`/deleteproject/${editValues.id}`);
+    handleClose();
   };
 
   const handleClose = () => {
@@ -95,7 +95,9 @@ export default function FormDialog(props) {
           <Button color="primary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button color="primary" onClick={handleDeleteProject}>Excluir</Button>
+          <Button color="primary" onClick={handleDeleteProject}>
+            Excluir
+          </Button>
           <Button color="primary" onClick={handleEditProject}>
             Salvar
           </Button>

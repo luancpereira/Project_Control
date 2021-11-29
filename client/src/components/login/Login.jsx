@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { api } from "../../services/Conection";
 
-function Login({setUser, setValidate }) {
+function Login({ setUser, setValidate }) {
   const handleClickLogin = (values) => {
     api
       .post("/login", {
@@ -13,7 +13,7 @@ function Login({setUser, setValidate }) {
       .then((response) => {
         if (response.data.token === 1) {
           localStorage.setItem("usuario", response.data.user);
-          localStorage.setItem('token', response.data.token)
+          localStorage.setItem("token", response.data.token);
           setUser(response.data.user);
           if (response.data.user === "admin") {
             setValidate(true);
@@ -21,7 +21,7 @@ function Login({setUser, setValidate }) {
             setValidate(false);
           }
         } else {
-          localStorage.setItem('token', null)
+          localStorage.setItem("token", null);
         }
         alert(response.data.msg);
       });

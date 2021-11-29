@@ -25,12 +25,12 @@ function ProjectsRegister() {
   return (
     <>
       <div className={styles.newproject_container}>
-      <h1>Criar Projeto</h1>
-      <p>Crie seu projeto para controle</p>
+        <h1>Criar Projeto</h1>
+        <p>Crie seu projeto para controle</p>
         <Formik initialValues={{}} onSubmit={handleClickCadProject}>
           <Form className={styles.form}>
             <div className={styles.form_control}>
-            <label className={styles.form_control_label}>Nome:</label>
+              <label className={styles.form_control_label}>Nome:</label>
               <Field
                 name="name"
                 className={styles.form_control_input}
@@ -39,7 +39,7 @@ function ProjectsRegister() {
             </div>
 
             <div className={styles.form_control}>
-            <label className={styles.form_control_label}>Orçamento:</label>
+              <label className={styles.form_control_label}>Orçamento:</label>
               <Field
                 name="budget"
                 className={styles.form_control_input}
